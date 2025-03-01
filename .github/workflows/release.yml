@@ -1,5 +1,10 @@
 name: release
 on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release tag name (default mpv version)'
+        default: ''
   push:
     tags:
       - '*'
@@ -2284,7 +2289,8 @@ jobs:
   release:
     permissions:
       contents: write  # for softprops/action-gh-release to create a release
-    needs: [setup, full-source, ubuntu, macos, ios, ios-simulator, mac-catalyst, watchos, watchos-simulator, tvos, tvos-simulator, android, webassembly, windows, apple]
+      # needs: [setup, full-source, ubuntu, macos, ios, ios-simulator, mac-catalyst, watchos, watchos-simulator, tvos, tvos-simulator, android, webassembly, windows, apple]
+    needs: [setup, full-source, android, webassembly]
     runs-on: ubuntu-latest
     steps:
     - name: download
