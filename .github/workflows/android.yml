@@ -40,6 +40,7 @@ jobs:
         -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON \
         -DCMAKE_INSTALL_PREFIX=install \
         -DCMAKE_BUILD_TYPE=Release \
+        -DNCNN_OPENMP=OFF \
         -DNCNN_VULKAN=ON \
 
     steps:
