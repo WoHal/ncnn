@@ -1929,6 +1929,7 @@ jobs:
         -DNCNN_VERSION_STRING="${{ needs.setup.outputs.VERSION }}" \
         -DNCNN_BUILD_BENCHMARK=OFF \
         -DNCNN_VULKAN=${{ matrix.opt.vulkan }} \
+        -DNCNN_OPENMP=OFF \
         -DNCNN_SHARED_LIB=${{ matrix.opt.shared-lib }} \
 
     steps:
