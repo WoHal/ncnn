@@ -20,7 +20,7 @@ jobs:
     steps:
     - name: get-version
       id: get_version
-      run: echo "VERSION=${inputs.version}" >> $GITHUB_OUTPUT
+      run: echo "VERSION=${{ inputs.version }}" >> $GITHUB_OUTPUT
 
   full-source:
     needs: [setup]
