@@ -47,8 +47,8 @@ jobs:
     strategy:
       matrix:
         opt:
-          - { vulkan: OFF, shared-lib: OFF, id: android               }
-          - { vulkan: OFF, shared-lib: ON,  id: android-shared        }
+          # - { vulkan: OFF, shared-lib: OFF, id: android               }
+          # - { vulkan: OFF, shared-lib: ON,  id: android-shared        }
           - { vulkan: ON,  shared-lib: OFF, id: android-vulkan        }
           - { vulkan: ON,  shared-lib: ON,  id: android-vulkan-shared }
     runs-on: ubuntu-latest
@@ -65,6 +65,9 @@ jobs:
         -DNCNN_BUILD_BENCHMARK=OFF \
         -DNCNN_VULKAN=${{ matrix.opt.vulkan }} \
         -DNCNN_OPENMP=OFF \
+        -DNCNN_DISABLE_RTTI=ON -DNCNN_DISABLE_EXCEPTION=ON -DNCNN_STDIO=OFF -DNCNN_PIXEL_DRAWING=OFF \
+        -DNCNN_PIXEL_ROTATE=OFF -DNCNN_PIXEL_AFFINE=OFF -DNCNN_AVX2=OFF -DNCNN_ARM82=OFF -DNCNN_RUNTIME_CPU=OFF \
+        -DNCNN_SIMPLESTL=ON \
         -DNCNN_SHARED_LIB=${{ matrix.opt.shared-lib }} \
 
     steps:
