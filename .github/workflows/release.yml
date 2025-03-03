@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Release tag name (default mpv version)'
+        description: 'Release tag name (default ncnn version)'
         default: ''
   push:
     tags:
